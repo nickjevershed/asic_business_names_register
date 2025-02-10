@@ -1,6 +1,7 @@
 #%%
 import requests 
 import pandas as pd
+import os
 
 # Get the URL for the latest ASIC business names dataset from data.gov.au
 
@@ -22,6 +23,8 @@ print(f"Downloading {file_url}")
 # r = requests.get(file_url)
 
 df = pd.read_csv(file_url, sep='\t')
+
+os.makedirs("deregistered", exist_ok=True)
 
 dereg = df[df['BN_STATUS'] == 'Deregistered']
 
