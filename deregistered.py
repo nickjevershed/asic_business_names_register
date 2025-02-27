@@ -36,8 +36,11 @@ historical = pd.read_csv('historical_data/deregistered_2010_to_2024.csv', sep='\
 
 merged = pd.concat([df, historical])
 
-merged = merged.drop_duplicates()
+print(len(merged))
 
+#%%
+merged = merged.drop_duplicates()
+print(len(merged))
 # check_dupes = merged[merged.duplicated(subset=['BN_NAME'], keep=False)]
 
 #%% Write the merged file
